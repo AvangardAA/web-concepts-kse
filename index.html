@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <script src="scripts/form.js"></script>
+</head>
+<body>
+<header>
+    <h1>Welcome page</h1>
+</header>
+
+<nav>
+    <a href="page2.html">Formatting page</a>
+    <a href="page3.html">Media</a>
+</nav>
+
+<main>
+    <h2>Form</h2>
+    <form action="#" method="post" onsubmit="form(); return false;">
+        <label for="q1">question 1: </label>
+        <input type="text" id="q1" name="q1" required><br>
+
+        <label for="q2">upload (question 2): </label>
+        <input type="file" id="q2" name="q2"><br>
+
+        <label>question 3: </label>
+        <input type="radio" id="ans1" name="q3" value="ans1">
+        <label for="ans1">1</label>
+        <input type="radio" id="ans2" name="q3" value="ans2">
+        <label for="ans2">2</label><br>
+
+        <label for="q4">question 4: </label>
+        <input type="checkbox" id="ans3" name="q4" value="ans3">
+        <label for="ans3">1</label>
+        <input type="checkbox" id="ans4" name="q4" value="ans4">
+        <label for="ans4">2</label><br>
+
+        <input type="submit" value="send">
+    </form>
+
+    <h2>Answers</h2>
+    <table>
+        <tr>
+            <td>answer 1: </td>
+            <td id="answer-1"></td>
+        </tr>
+        <tr>
+            <td>answer 2: </td>
+            <td id="answer-2"></td>
+        </tr>
+        <tr>
+            <td>answer 3: </td>
+            <td id="answer-3"></td>
+        </tr>
+        <tr>
+            <td>answer 4: </td>
+            <td id="answer-4"></td>
+        </tr>
+    </table>
+</main>
+
+<footer>
+    <p>footer 1</p>
+</footer>
+</body>
+</html>
