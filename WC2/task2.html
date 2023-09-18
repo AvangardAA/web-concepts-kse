@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>playground</title>
+  <link rel="stylesheet" href="/styles/styleT1.css" id="table-style">
+</head>
+<body>
+<h1>playground</h1>
+<div class="style-buttons">
+  <button id="style1">Style 1</button>
+  <button id="style2">Style 2</button>
+  <button id="style3">Style 3</button>
+</div>
+<div class="table-container">
+  <table>
+    <thead>
+    <tr>
+      <th><i class="fas fa-cog"></i> KSE Tier</th>
+      <th><i class="fas fa-user"></i> Tag</th>
+      <th><i class="fas fa-envelope"></i> Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>web concepts</td>
+      <td>best subject</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>programming paradigms</td>
+      <td>second best subject</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>soft. engineering</td>
+      <td>devops</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>hello</td>
+      <td>goodbye</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>goodbye</td>
+      <td>hello</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+  function applyStylesheet(stylesheet) {
+    document.getElementById('table-style').setAttribute('href', stylesheet);
+  }
+
+  // Event listeners for style buttons
+  document.getElementById('style1').addEventListener('click', function () {
+    applyStylesheet('/styles/styleT1.css');
+  });
+
+  document.getElementById('style2').addEventListener('click', function () {
+    applyStylesheet('/styles/styleT2.css');
+  });
+
+  document.getElementById('style3').addEventListener('click', function () {
+    applyStylesheet('/styles/styleT3.css');
+  });
+</script>
+</body>
+</html>

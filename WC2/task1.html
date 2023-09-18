@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press button to show image</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Press button to show celentano</h1>
+</header>
+<nav>
+    <a href="#"><i class="fas fa-home"></i> Dummy button 1</a>
+    <a href="#"><i class="fas fa-info-circle"></i> KSE</a>
+    <a href="#"><i class="fas fa-envelope"></i> KSE 3.14</a>
+</nav>
+<div class="container">
+    <div class="input-container">
+        <input class="input-dummy1" type="dummy1" placeholder="Dummy field 1 blue">
+        <input class="input-dummy2" type="dummy2" placeholder="Dummy field 2 red">
+    </div>
+    <button id="showImage">Click me</button>
+    <div class="image-container hidden">
+        <img src="image1.jpg" alt="imagecelentano">
+    </div>
+</div>
+
+<script>
+    document.getElementById('showImage').addEventListener('click', function () {
+        document.querySelector('.image-container').classList.remove('hidden');
+    });
+</script>
+</body>
+</html>
