@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>kse</title>
+</head>
+<body>
+<h1>Bookshelf</h1>
+<p>Total: <span id="total_books">0</span></p>
+<button onclick="display_unread()">Unread Books</button>
+<button onclick="display_fav()">Favorite Books</button>
+<hr>
+<h2>Add Book</h2>
+<form id="addBookForm">
+    <label for="title">Title:</label>
+    <input type="text" id="title" required><br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" required><br>
+    <label for="num_pages">Number of Pages:</label>
+    <input type="number" id="num_pages" required><br>
+    <button type="button" onclick="add_book()">Add Book</button>
+</form>
+<hr>
+<h2>Bookshelf</h2>
+<table id="bookTable">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Read</th>
+        <th>Favorite</th>
+        <th>Actions</th>
+    </tr>
+</table>
+<script src="functionsAndClasses.js"></script>
+<script>
+
+    const bkShelf = new Bookshelf([]);
+
+    function update_book_c()
+    {
+        const total_b = document.getElementById('total_books');
+        total_b.textContent = bkShelf.books.length;
+    }
+
+    function display_unread()
+    {
+        const unread_books = bkShelf.getUnreadBooks();
+        display_b(unread_books);
+    }
+
+    function display_fav()
+    {
+        const fav_books = bkShelf.getFavBooks();
+        display_b(fav_books);
+    }
+
+    function display_b(books)
+    {
+        const table = document.getElementById('bookTable');
+        table.innerHTML = `
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read</th>
+                    <th>Favorite</th>
+                    <th>Actions</th>
+                </tr>
+            `;
+
+        for (const book of books)
+        {
+            const row = table.insertRow();
+            row.innerHTML = `
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.numberOfPages}</td>
+                    <td>${book.isRead ? 'Yes' : 'No'}</td>
+                    <td>${book.isFavorite ? 'Yes' : 'No'}</td>
+                    <td>
+                        <button onclick="mark_read('${book.title}')">Mark as Read</button>
+                        <button onclick="toggle_fav('${book.title}')">Toggle Fav</button>
+                        <button onclick="rem_book('${book.title}')">Remove</button>
+                    </td>
+                `;
+        }
+    }
+
+    function add_book()
+    {
+        const title = document.getElementById('title').value;
+        const authors = document.getElementById('author').value;
+        const numberOfPages = parseInt(document.getElementById('num_pages').value);
+        const newBook = new Book(title, authors, numberOfPages, false, false);
+        bkShelf.addBook(newBook);
+        update_book_c();
+        display_b(bkShelf.books);
+        document.getElementById('addBookForm').reset();
+    }
+
+    function mark_read(title)
+    {
+        const book = bkShelf.books.find(book => book.title === title);
+        if (book)
+        {
+            book.markAsRead();
+            display_b(bkShelf.books);
+        }
+    }
+
+    function toggle_fav(title)
+    {
+        const book = bkShelf.books.find(book => book.title === title);
+        if (book)
+        {
+            book.toggleFavorite();
+            display_b(bkShelf.books);
+        }
+    }
+
+    function rem_book(title)
+    {
+        const book = bkShelf.books.find(book => book.title === title);
+        if (book)
+        {
+            bkShelf.removeBook(book);
+            update_book_c();
+            display_b(bkShelf.books);
+        }
+    }
+
+    update_book_c();
+</script>
+</body>
+</html>

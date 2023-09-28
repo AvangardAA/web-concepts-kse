@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>kse</title>
+</head>
+<body>
+<table id="Table"></table>
+<script>
+    function get_random_letter()
+    {
+        const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        return alpha[Math.floor(Math.random() * alpha.length)];
+    }
+    function create_table_cells(rowAmount, cellsAmount)
+    {
+        const table = document.getElementById('Table');
+
+        for (let i = 0; i < rowAmount; i++)
+        {
+            const row = table.insertRow();
+
+            for (let j = 0; j < cellsAmount; j++)
+            {
+                const cell = row.insertCell();
+                cell.innerText = get_random_letter();
+            }
+        }
+    }
+
+    create_table_cells(25, 25);
+</script>
+</body>
+</html>
