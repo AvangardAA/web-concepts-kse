@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form kse</title>
+</head>
+<body>
+<form id="f">
+    <label for="t">text: </label>
+    <input type="text" id="t" name="t"><br><br>
+
+    <label for="n">digits: </label>
+    <input type="text" id="n" name="n"><br><br>
+
+    <label for="rg">range (1-100): </label>
+    <input type="range" id="rg" name="rg" min="1" max="100"><br><br>
+
+    <label for="d">date: </label>
+    <input type="date" id="d" name="d"><br><br>
+
+    <label>radio: </label><br>
+    <input type="radio" id="r1" name="r" value="1">
+    <label for="r1">Var 1</label><br>
+    <input type="radio" id="r2" name="r" value="2">
+    <label for="r2">Var 2</label><br><br>
+
+    <label for="e">email: </label>
+    <input type="text" id="e" name="e"><br><br>
+
+    <label for="p1">pass (3 char, 1 upper, 1 lower, 1 digit, 1 special): </label>
+    <input type="password" id="p1" name="p1"><br><br>
+
+    <label for="p2">repeat pass: </label>
+    <input type="password" id="p2" name="p2"><br><br>
+
+    <button type="submit">send</button>
+</form>
+<div id="r"></div>
+<script src="formvalidation.js"></script>
+</body>
+</html>
