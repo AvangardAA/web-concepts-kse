@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSE todo</title>
+</head>
+<body>
+<div class="container">
+  <h1>To do's</h1>
+  <div class="addtodo">
+    <input type="text" id="taskAdd" placeholder="add task">
+    <button id="addTask">Add</button>
+  </div>
+  <ul id="taskList"></ul>
+  <div class="rems">
+    <button id="remCompleted">Remove completed</button>
+    <button id="remAll">Remove all</button>
+  </div>
+  <div class="sorts">
+    <button id="ascsorts">Sort ascending</button>
+    <button id="descsorts">Sort descending</button>
+  </div>
+  <div class="localstorage">
+    <button id="savelocal">Save to storage</button>
+    <button id="clearlocal">Clear storage</button>
+  </div>
+  <div class="pickrrandom">
+    <button id="pickrandom">Pick Todo</button>
+  </div>
+  <button id="loadstorage">Load</button>
+</div>
+<script src="scripts/mainfunc.js"></script>
+</body>
+</html>
