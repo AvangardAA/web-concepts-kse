@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/tablecomponent.css';
 
-function TableComponent({ onBoxClick }) {
+function TableComponent({ onBoxClick, taskData }) {
     const boxData = [
-        { label: 'Monday'},
-        { label: 'Tuesday'},
+        { label: 'Monday' },
+        { label: 'Tuesday' },
         { label: 'Wednesday' },
         { label: 'Thursday' },
         { label: 'Friday' },
@@ -12,9 +12,13 @@ function TableComponent({ onBoxClick }) {
         { label: 'Sunday' },
     ];
 
+    const [selectedDayIndex, setSelectedDayIndex] = useState(null);
+
     const handleBoxClick = (index) => {
         const selectedBox = boxData[index];
         onBoxClick(selectedBox);
+
+        setSelectedDayIndex(index);
     };
 
     return (
@@ -22,10 +26,10 @@ function TableComponent({ onBoxClick }) {
             {boxData.map((box, index) => (
                 <div
                     key={index}
-                    className="table-box"
+                    className={`table-box ${index === selectedDayIndex ? 'highlighted' : ''}`}
                     onClick={() => handleBoxClick(index)}
                 >
-                    {box.label}
+                    {box.label} ({taskData[box.label].length} tasks, dur: {taskData[box.label].length*30} mins)
                 </div>
             ))}
         </div>

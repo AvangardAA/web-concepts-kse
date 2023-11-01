@@ -13,3 +13,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+.highlighted {
+    background-color: lightgreen;
+}

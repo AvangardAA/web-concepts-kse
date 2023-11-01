@@ -5,6 +5,11 @@ function BoxWithTable({ tasks, selectedDay }) {
     const boxStyle = "border rounded p-3 m-3";
     const rowStyle = "border p-3 m-3";
 
+    const handleBoxClickToDel = (selectedDay, index) =>
+    {
+        tasks[selectedDay].splice(index, 1);
+    }
+
     if (selectedDay && tasks[selectedDay]) {
         return (
             <div className={boxStyle}>
@@ -14,6 +19,7 @@ function BoxWithTable({ tasks, selectedDay }) {
                         <div>Task description: {task.taskDescription}</div>
                         <div>Do from: {task.timeFrom}</div>
                         <div>Do till: {task.timeTo}</div>
+                        <button onClick={() => handleBoxClickToDel(selectedDay, index)}>Delete</button>
                     </div>
                 ))}
             </div>
