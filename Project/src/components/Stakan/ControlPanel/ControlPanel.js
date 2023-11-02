@@ -16,7 +16,7 @@ export default function Input({order, setOrder, orderTickers}) {
             setComment('');
             setType('')
 
-            await axios.post(`${process.env.REACT_APP_API_KEY}post-order`, null,
+            await axios.post(`http://43.207.112.193:8081/post-order`, null,
                 { headers: { "Content-Type": "application/x-www-form-urlencoded"},params:{
                         country: 'Ukraine',
                         city: "Vinnytsia",
