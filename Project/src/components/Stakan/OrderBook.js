@@ -73,7 +73,7 @@ export function TableWrapper() {
     async function fetchData(params) {
         try {
             let response = await axios.get(
-                process.env.REACT_APP_API_KEY +
+                "http://43.207.112.193:8081" +
                 `obp?country=${params[0].value}&city=${params[1].value}&base=${params[2].value}&quote=${params[3].value}`
             );
             return response;
