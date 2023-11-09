@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+  background: #222222;
+}
+
+.navbar-main {
+  display: flex;
+}
